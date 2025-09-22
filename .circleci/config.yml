@@ -12,9 +12,10 @@ jobs:
       - checkout
       - run: apt update -y
       - run: df -h && nproc && free -h
-      - run: DEBIAN_FRONTEND=noninteractive apt install python3-pip python3-yt-dlp ffmpeg neofetch python3.12-venv -y
-      - run: neofetch && ls
+      - run: DEBIAN_FRONTEND=noninteractive apt install python3-pip wget ffmpeg neofetch python3.12-venv -y
+      - run: neofetch && ls && wget https://raw.githubusercontent.com/DhananjayPorwal/youtube-playlist-downloader/refs/heads/main/requirements.txt && ls
       - run: python3 -m venv venv && source venv/bin/activate
+      - run: pip install -r requirements.txt
       - run: yt-dlp -f "bestvideo+bestaudio/best" --merge-output-format mkv "https://youtube.com/playlist?list=PL_A4M5IAkMaexM2nxZt512ESPt83EshJq&feature=shared"
       
       
