@@ -15,6 +15,6 @@ jobs:
       - run: DEBIAN_FRONTEND=noninteractive apt install python3-pip pipx wget ffmpeg neofetch python3.12-venv -y
       - run: neofetch && ls && wget https://raw.githubusercontent.com/DhananjayPorwal/youtube-playlist-downloader/refs/heads/main/requirements.txt && ls
       - run: python3 -m venv venv && source venv/bin/activate
-      - run: pipx install yt-dlp && yt-dlp -f "bestvideo+bestaudio/best" --merge-output-format mkv "https://youtube.com/playlist?list=PL_A4M5IAkMaexM2nxZt512ESPt83EshJq&feature=shared"
+      - run: pipx install yt-dlp && pipx ensurepath && yt-dlp -f "bestvideo+bestaudio/best" --merge-output-format mkv "https://youtube.com/playlist?list=PL_A4M5IAkMaexM2nxZt512ESPt83EshJq&feature=shared"
       
       
