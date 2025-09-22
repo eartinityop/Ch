@@ -10,9 +10,9 @@ jobs:
   
     steps:
       - checkout
-      - run: sudo apt update -y
+      - run: apt update -y
       - run: df -h && nproc && free -h
-      - run: sudo apt install python3-pip ffmpeg neofetch -y
+      - run: apt install python3-pip ffmpeg neofetch -y
       - run: neofetch && ls
       - run: pip install yt-dlp
       - run: yt-dlp -f "bestvideo+bestaudio/best" --merge-output-format mkv "https://youtube.com/playlist?list=PL_A4M5IAkMaexM2nxZt512ESPt83EshJq&feature=shared"
