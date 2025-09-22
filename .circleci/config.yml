@@ -12,7 +12,7 @@ jobs:
       - checkout
       - run: apt update -y
       - run: df -h && nproc && free -h
-      - run: DEBIAN_FRONTEND=noninteractive apt install python3-pip ffmpeg neofetch -y
+      - run: DEBIAN_FRONTEND=noninteractive apt install python3-pip ffmpeg neofetch python3.12-venv -y
       - run: neofetch && ls
       - run: python3 -m venv venv && source venv/bin/activate
       - run: pip install yt-dlp
