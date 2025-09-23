@@ -1,0 +1,25 @@
+env:
+    VIDEO_URL: https://youtu.be/8acUwVI1xRs?feature=shared
+
+task:
+  name: "Compilation"
+  timeout_in: 240m  
+  container:
+      image: ubuntu:latest
+      cpu: 4
+      memory: 16G
+
+
+
+  Storage-Checker_script:
+      - df -h
+      - free -h && nproc
+      - ls -l -a -h
+  
+  Sync_script:
+      - apt update && apt install python3 ffmpeg wget curl -y
+      - wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O yt-dlp
+      - chmod +x yt-dlp && mv yt-dlp /usr/local/bin/ && yt-dlp --version
+      - yt-dlp -f "best[height<=360]" "https://youtu.be/8acUwVI1xRs?feature=shared"
+
+
